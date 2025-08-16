@@ -11,15 +11,15 @@
   <link rel="icon" href="https://i.imgur.com/DWiNl1w.png" type="image/png" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Inter:wght@400;500;700&family=Teko:wght@600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Rubik:wght@500;700&family=Teko:wght@600&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     :root{
       --red:#D62828; --red-600:#b91f1f; --white:#fff; --charcoal:#333;
       --nude:#F6F1EA; --sage:#94C973; --sage-700:#6ea953; --gray-100:#f3f3f3; --gray-300:#e5e5e5;
     }
     *{box-sizing:border-box}
-    html,body{margin:0;padding:0}
-    body{font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--charcoal);background:var(--white);line-height:1.6}
+    html,body{margin:0;padding:0;scroll-behavior:smooth;}
+    body{font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--charcoal);background:var(--white);line-height:1.6;text-align:center}
     .container{width:min(1100px,92%);margin:0 auto}
     .stack-sm>*+*{margin-top:.5rem}
     .stack>*+*{margin-top:1rem}
@@ -29,22 +29,28 @@
     .brand{display:flex;align-items:center;gap:.75rem;text-decoration:none}
     .brand-logo-wrapper{background:var(--nude);border-radius:50%;padding:6px;display:flex;align-items:center;justify-content:center}
     .brand img{width:44px;height:44px;object-fit:contain}
-    .brand span{font-family:'Montserrat',sans-serif;font-weight:700;letter-spacing:.5px;color:var(--charcoal)}
+    .brand span{font-family:'Rubik',sans-serif;font-weight:700;letter-spacing:.5px;color:var(--charcoal)}
     nav ul{list-style:none;display:flex;gap:1rem;margin:0;padding:0}
     nav a{text-decoration:none;color:var(--charcoal);font-weight:600;padding:.5rem .75rem;border-radius:8px}
     nav a:hover,nav a:focus{background:var(--sage);color:var(--white);outline:none}
-    .hero{background:linear-gradient(180deg,var(--nude),#fff 60%);padding:3rem 0 3rem;text-align:center}
+    .hero{background:linear-gradient(180deg,var(--nude),#fff 60%);padding:3rem 0 3rem}
     .hero-inner{display:flex;flex-direction:column;align-items:center;gap:0.75rem}
     .tagline{font-family:'Teko',sans-serif;font-weight:600;color:var(--red);letter-spacing:.4px;font-size:1.3rem}
-    h1{font-family:'Inter',sans-serif;font-weight:500;font-size:1rem;margin:0;color:var(--charcoal);max-width:650px}
-    .logo{width:100%;max-width:180px}
+    h1{font-family:'Poppins',sans-serif;font-weight:500;font-size:1rem;margin:0;color:var(--charcoal);max-width:650px;margin-left:auto;margin-right:auto}
+    .logo{width:100%;max-width:360px}
     section{padding:3rem 0}
-    .section-title{font-family:'Montserrat',sans-serif;font-size:1.6rem;margin:0 0 1rem;text-align:center;color:var(--sage-700)}
+    .section-title{font-family:'Rubik',sans-serif;font-size:1.6rem;margin:0 0 1rem;text-align:center;color:var(--sage-700);position:relative;display:inline-block}
+    .section-title::after{content:'';display:block;width:60%;height:4px;background:var(--red);margin:0.5rem auto 0;border-radius:2px}
     #whatwedo{border-top:4px solid var(--sage);background:var(--nude)}
-    #whatwedo p{text-align:center;max-width:750px;margin:0 auto}
+    #whatwedo p{max-width:750px;margin:0 auto}
     .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2rem;margin-top:2rem}
-    .card{background:var(--white);border-radius:12px;box-shadow:0 2px 6px rgba(0,0,0,.06);padding:1.5rem;text-align:center}
+    .card{background:var(--white);border-radius:12px;box-shadow:0 2px 6px rgba(0,0,0,.06);padding:1.5rem;text-align:center;transition:transform .3s, box-shadow .3s}
+    .card:hover{transform:translateY(-6px);box-shadow:0 6px 12px rgba(0,0,0,.12)}
     .card img{width:80px;height:auto;margin-bottom:1rem}
+    .cta-band{background:var(--red);color:var(--white);padding:2rem 1rem;margin-top:3rem}
+    .cta-band h2{margin:0 0 1rem;font-size:1.5rem;font-family:'Rubik',sans-serif}
+    .cta-band a{background:var(--white);color:var(--red);padding:.75rem 1.25rem;border-radius:8px;font-weight:700;text-decoration:none;transition:background .3s,color .3s}
+    .cta-band a:hover{background:var(--red-600);color:var(--white)}
     footer{background:var(--white);border-top:1px solid var(--gray-300);padding:2rem 0;font-size:.95rem;text-align:center}
     .social-icons{display:flex;justify-content:center;gap:1.5rem;margin-top:1rem}
     .social-icons a{display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:50%;background:var(--sage);color:var(--white);transition:background .3s}
@@ -100,23 +106,29 @@
       <p>We believe pets of all walks of life should feel safe, warm, and cared for on the hardest days. Pit Stop 4 Paws brings warmth, safety, and joy to the pets of the houseless community — one pit stop at a time.</p>
       <div class="cards">
         <div class="card">
-          <img src="https://i.imgur.com/9A1oL3W.png" alt="Dog in coat icon" />
+          <img src="https://i.imgur.com/Fg99Q8i.png" alt="Dog in coat icon" />
           <h3>Warmth & Protection</h3>
           <p>Coats, booties, and rain covers to keep pets dry and comfortable in Oregon weather.</p>
         </div>
         <div class="card">
-          <img src="https://i.imgur.com/yKWt6cl.png" alt="Leash and harness icon" />
+          <img src="https://i.imgur.com/2nftHh0.png" alt="Leash and harness icon" />
           <h3>Everyday Essentials</h3>
           <p>Leashes, harnesses, bowls, and flea/tick prevention — practical gear for daily life on the move.</p>
         </div>
         <div class="card">
-          <img src="https://i.imgur.com/GHPIrsl.png" alt="Vet care icon" />
+          <img src="https://i.imgur.com/oQ2zGAZ.png" alt="Vet care icon" />
           <h3>Care & Referrals</h3>
           <p>Connections to low-cost vet care and community resources for both pets and people.</p>
         </div>
       </div>
     </div>
   </section>
+
+  <!-- CTA Red Band -->
+  <div class="cta-band">
+    <h2>Help fill the next pit stop</h2>
+    <a href="#donate">Donate Now</a>
+  </div>
 
   <!-- Volunteer -->
   <section id="volunteer">
