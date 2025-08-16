@@ -7,7 +7,7 @@
   <meta name="description" content="Pit Stop 4 Paws is a 501(c)(3) Oregon-based nonprofit providing essential care for the pets of the houseless community." />
   <meta property="og:title" content="Pit Stop 4 Paws" />
   <meta property="og:description" content="Relieve. Protect. Mend. Support pets living outdoors with comfort, safety, and dignity." />
-  <meta property="og:image" content="https://i.imgur.com/6NT6Xq6.png" />
+  <meta property="og:image" content="https://i.imgur.com/GlzwTLE.png" />
   <link rel="icon" href="https://i.imgur.com/DWiNl1w.png" type="image/png" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -34,18 +34,22 @@
     nav a{text-decoration:none;color:var(--charcoal);font-weight:600;padding:.5rem .75rem;border-radius:8px}
     nav a:hover,nav a:focus{background:var(--sage);color:var(--white);outline:none}
     .hero{background:linear-gradient(180deg,var(--nude),#fff 60%);padding:3rem 0 3rem;text-align:center}
-    .hero-inner{display:flex;flex-direction:column;align-items:center;gap:1rem}
-    .tagline{font-family:'Teko',sans-serif;font-weight:600;color:var(--red);letter-spacing:.4px;font-size:1.5rem}
-    h1{font-family:'Inter',sans-serif;font-weight:600;font-size:1.1rem;margin:0;color:var(--charcoal);max-width:650px}
-    .logo{width:100%;max-width:230px}
+    .hero-inner{display:flex;flex-direction:column;align-items:center;gap:0.75rem}
+    .tagline{font-family:'Teko',sans-serif;font-weight:600;color:var(--red);letter-spacing:.4px;font-size:1.3rem}
+    h1{font-family:'Inter',sans-serif;font-weight:500;font-size:1rem;margin:0;color:var(--charcoal);max-width:650px}
+    .logo{width:100%;max-width:180px}
     section{padding:3rem 0}
-    .section-title{font-family:'Montserrat',sans-serif;font-size:1.6rem;margin:0 0 1rem;text-align:center}
-    .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem}
-    .card{background:var(--white);border:1px solid var(--gray-300);border-radius:14px;padding:1.1rem;transition:all .2s ease}
-    .card:hover{border-color:var(--sage);box-shadow:0 0 0 2px var(--sage) inset}
-    .card h3{margin:0 0 .5rem;font-size:1.2rem;color:var(--sage-700)}
+    .section-title{font-family:'Montserrat',sans-serif;font-size:1.6rem;margin:0 0 1rem;text-align:center;color:var(--sage-700)}
     #whatwedo{border-top:4px solid var(--sage);background:var(--nude)}
-    footer{background:var(--white);border-top:1px solid var(--gray-300);padding:1.5rem 0;font-size:.95rem;text-align:center}
+    #whatwedo p{text-align:center;max-width:750px;margin:0 auto}
+    .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2rem;margin-top:2rem}
+    .card{background:var(--white);border-radius:12px;box-shadow:0 2px 6px rgba(0,0,0,.06);padding:1.5rem;text-align:center}
+    .card img{width:80px;height:auto;margin-bottom:1rem}
+    footer{background:var(--white);border-top:1px solid var(--gray-300);padding:2rem 0;font-size:.95rem;text-align:center}
+    .social-icons{display:flex;justify-content:center;gap:1.5rem;margin-top:1rem}
+    .social-icons a{display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:50%;background:var(--sage);color:var(--white);transition:background .3s}
+    .social-icons a:hover{background:var(--red)}
+    .social-icons img{width:24px;height:24px;filter:invert(1)}
   </style>
 </head>
 <body>
@@ -60,6 +64,7 @@
       </a>
       <nav>
         <ul>
+          <li><a href="#about">About</a></li>
           <li><a href="#whatwedo">What We Do</a></li>
           <li><a href="#volunteer">Volunteer</a></li>
           <li><a href="#donate">Donate</a></li>
@@ -74,19 +79,97 @@
   <!-- Hero -->
   <main id="home" class="hero">
     <div class="hero-inner">
-      <img class="logo" src="https://i.imgur.com/6NT6Xq6.png" alt="Pit Stop 4 Paws shield logo" />
+      <img class="logo" src="https://i.imgur.com/GlzwTLE.png" alt="Pit Stop 4 Paws shield logo" />
       <div class="tagline">Relieve. Protect. Mend.</div>
       <h1>Every pet deserves comfort, no matter where they call home.</h1>
     </div>
   </main>
 
+  <!-- About -->
+  <section id="about">
+    <div class="container stack">
+      <h2 class="section-title">About</h2>
+      <p>Coming soon! This section will share the story of how Pit Stop 4 Paws was founded and the mission that drives our work.</p>
+    </div>
+  </section>
+
   <!-- What We Do -->
   <section id="whatwedo">
     <div class="container stack">
       <h2 class="section-title">What We Do</h2>
-      <p style="text-align:center;max-width:750px;margin:0 auto">We believe pets of all walks of life should feel safe, warm, and cared for on the hardest days. Pit Stop 4 Paws brings warmth, safety, and joy to the pets of the houseless community — one pit stop at a time.</p>
+      <p>We believe pets of all walks of life should feel safe, warm, and cared for on the hardest days. Pit Stop 4 Paws brings warmth, safety, and joy to the pets of the houseless community — one pit stop at a time.</p>
+      <div class="cards">
+        <div class="card">
+          <img src="https://i.imgur.com/9A1oL3W.png" alt="Dog in coat icon" />
+          <h3>Warmth & Protection</h3>
+          <p>Coats, booties, and rain covers to keep pets dry and comfortable in Oregon weather.</p>
+        </div>
+        <div class="card">
+          <img src="https://i.imgur.com/yKWt6cl.png" alt="Leash and harness icon" />
+          <h3>Everyday Essentials</h3>
+          <p>Leashes, harnesses, bowls, and flea/tick prevention — practical gear for daily life on the move.</p>
+        </div>
+        <div class="card">
+          <img src="https://i.imgur.com/GHPIrsl.png" alt="Vet care icon" />
+          <h3>Care & Referrals</h3>
+          <p>Connections to low-cost vet care and community resources for both pets and people.</p>
+        </div>
+      </div>
     </div>
   </section>
+
+  <!-- Volunteer -->
+  <section id="volunteer">
+    <div class="container stack">
+      <h2 class="section-title">Volunteer</h2>
+      <p>Coming soon!</p>
+    </div>
+  </section>
+
+  <!-- Donate -->
+  <section id="donate">
+    <div class="container stack">
+      <h2 class="section-title">Donate</h2>
+      <p>Coming soon!</p>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="container stack">
+      <h2 class="section-title">Contact</h2>
+      <p>Coming soon!</p>
+    </div>
+  </section>
+
+  <!-- Blog -->
+  <section id="blog">
+    <div class="container stack">
+      <h2 class="section-title">Blog</h2>
+      <p>Coming soon!</p>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section id="gallery">
+    <div class="container stack">
+      <h2 class="section-title">Gallery</h2>
+      <p>Coming soon!</p>
+    </div>
+  </section>
+
+  <!-- Footer with Social Media -->
+  <footer>
+    <p>&copy; 2025 Pit Stop 4 Paws. All rights reserved.</p>
+    <div class="social-icons">
+      <a href="https://www.instagram.com/PitStop4Paws" target="_blank" rel="noopener">
+        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" />
+      </a>
+      <a href="https://www.facebook.com/profile.php?id=61579214438639" target="_blank" rel="noopener">
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" />
+      </a>
+    </div>
+  </footer>
 
 </body>
 </html>
