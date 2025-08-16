@@ -3,70 +3,215 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Pit Stop 4 Paws - Coming Soon</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
+  <title>Pit Stop 4 Paws</title>
+  <meta name="description" content="Pit Stop 4 Paws is a 501(c)(3) Oregon-based nonprofit providing essential care for the pets of the houseless community." />
+  <meta property="og:title" content="Pit Stop 4 Paws" />
+  <meta property="og:description" content="Relieve. Protect. Mend. Support pets living outdoors with comfort, safety, and dignity." />
+  <meta property="og:image" content="https://i.imgur.com/ToFQSgt.png" />
+  <link rel="icon" href="https://i.imgur.com/GT4tile.png" type="image/png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
   <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: #3AAFA9; /* teal */
-      color: #FFFFFF;
-      margin: 0;
-      padding: 60px 20px;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      min-height: 100vh;
-      justify-content: center;
+    :root{
+      --red:#D62828; --red-600:#b91f1f; --white:#fff; --charcoal:#333;
+      --beige:#F5E9DC; --green:#94C973; --green-700:#6ea953; --gray-100:#f3f3f3; --gray-300:#e5e5e5;
     }
-    img {
-      max-width: 280px;
-      margin-bottom: 40px;
-      border-radius: 12px;
-      box-shadow: 0 8px 16px rgba(0,0,0,0.3);
-    }
-    h1 {
-      font-weight: 700;
-      font-size: 3rem;
-      margin-bottom: 20px;
-      text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
-    }
-    p {
-      font-weight: 400;
-      font-size: 1.2rem;
-      max-width: 600px;
-      margin: 10px auto;
-      line-height: 1.5;
-      text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
-    }
-    .contact-button {
-      margin-top: 40px;
-      background-color: #DEF2F1;
-      color: #3AAFA9;
-      border: none;
-      padding: 15px 40px;
-      font-size: 1.2rem;
-      font-weight: 700;
-      border-radius: 30px;
-      cursor: pointer;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-      transition: background-color 0.3s ease, color 0.3s ease;
-      text-decoration: none;
-      display: inline-block;
-    }
-    .contact-button:hover {
-      background-color: #2B7A78;
-      color: #DEF2F1;
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--charcoal);background:var(--white);line-height:1.6}
+    .container{width:min(1100px,92%);margin:0 auto}
+    .stack-sm>*+*{margin-top:.5rem}
+    .stack>*+*{margin-top:1rem}
+    .stack-lg>*+*{margin-top:2rem}
+    header{position:sticky;top:0;z-index:10;background:var(--white);border-bottom:1px solid var(--gray-300)}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:.8rem 0}
+    .brand{display:flex;align-items:center;gap:.75rem;text-decoration:none}
+    .brand img{width:44px;height:44px;object-fit:contain;border-radius:8px}
+    .brand span{font-family:'Montserrat',sans-serif;font-weight:700;letter-spacing:.5px;color:var(--charcoal)}
+    nav ul{list-style:none;display:flex;gap:1rem;margin:0;padding:0}
+    nav a{text-decoration:none;color:var(--charcoal);font-weight:600;padding:.5rem .75rem;border-radius:8px}
+    nav a:hover,nav a:focus{background:var(--gray-100);outline:none}
+    .hero{background:linear-gradient(180deg,var(--beige),#fff 60%);padding:clamp(2rem,4vw + 1rem,5rem) 0 3rem}
+    .hero-inner{display:grid;grid-template-columns:1.1fr .9fr;gap:2rem;align-items:center}
+    .tagline{font-size:1.05rem;font-weight:700;color:var(--red);letter-spacing:.4px}
+    h1{font-family:'Montserrat',sans-serif;font-weight:700;font-size:clamp(1.6rem,1.2rem + 2vw,2.6rem);margin:0 0 .5rem;color:var(--charcoal)}
+    .logo{width:100%;max-width:360px;justify-self:center}
+    .btn{display:inline-block;text-decoration:none;font-weight:700;border-radius:12px;padding:.85rem 1.1rem}
+    .btn-primary{background:var(--red);color:var(--white)}
+    .btn-primary:hover,.btn-primary:focus{background:var(--red-600)}
+    .btn-secondary{background:var(--green);color:var(--white)}
+    .btn-secondary:hover,.btn-secondary:focus{background:var(--green-700)}
+    .btn[disabled]{opacity:.55;pointer-events:none;filter:saturate(.2);cursor:not-allowed}
+    section{padding:3rem 0}
+    .section-title{font-family:'Montserrat',sans-serif;font-size:1.6rem;margin:0 0 1rem}
+    .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem}
+    .card{background:var(--white);border:1px solid var(--gray-300);border-radius:14px;padding:1.1rem}
+    .card h3{margin:0 0 .5rem;font-size:1.2rem}
+    /* Form styling */
+    form{margin-top:.75rem}
+    label{font-weight:600;display:block;margin:.5rem 0 .25rem}
+    input,textarea{width:100%;padding:.7rem .8rem;border:1px solid var(--gray-300);border-radius:12px;outline:none}
+    input:focus,textarea:focus{border-color:var(--green);box-shadow:0 0 0 3px rgba(148,201,115,.25)}
+    button[type="submit"].btn{margin-top:.6rem}
+    /* Footer */
+    footer{background:var(--white);border-top:1px solid var(--gray-300);padding:1.5rem 0;font-size:.95rem}
+    /* Coming Soon blocks */
+    #gallery p,#blog p{font-weight:700;letter-spacing:.3px;color:#777}
+    /* Responsive */
+    @media (max-width:860px){
+      .hero-inner{grid-template-columns:1fr;text-align:center}
+      .brand span{display:none}
     }
   </style>
 </head>
 <body>
-  <img src="https://i.imgur.com/o15c8eD.png" alt="Pit Stop 4 Paws Logo" />
-  <h1>Coming Soon!</h1>
-  <p>Relieve. Protect. Mend.</p>
-  <p>Pit Stop 4 Paws works to provide essential attire, supplies, and care for pets living outdoors, ensuring their comfort, safety, and dignity — one pit stop at a time.</p>
-  <p>Thank you for your support!</p>
+  <!-- Header -->
+  <header>
+    <div class="container nav" role="navigation" aria-label="Primary">
+      <a class="brand" href="#home">
+        <img src="https://i.imgur.com/GT4tile.png" alt="Pit Stop 4 Paws logo" />
+        <span>Pit Stop 4 Paws</span>
+      </a>
+      <nav>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#volunteer">Volunteer</a></li>
+          <li><a href="#donate">Donate</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#blog">Blog</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-  <a href="mailto:PitStop4Paws@gmail.com" class="contact-button">Contact Me</a>
+  <!-- Hero -->
+  <main id="home" class="hero">
+    <div class="container hero-inner">
+      <div class="stack-lg">
+        <div class="tagline">Relieve. Protect. Mend.</div>
+        <h1>Every pet deserves comfort, even on the hardest days. We bring warmth, safety, and a little joy to the pets of the houseless community — one pit stop at a time.</h1>
+        <div class="stack-sm">
+          <a class="btn btn-primary" href="https://cash.app/$PitStop4Paws" target="_blank" rel="noopener" aria-label="Donate via Cash App">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/3/30/Cash_App_Logo.svg" alt="Cash App" style="height:20px;vertical-align:middle;margin-right:5px;">Donate
+          </a>
+          <a class="btn btn-secondary" href="#" aria-disabled="true" disabled>Venmo - Coming Soon</a>
+          <a class="btn btn-secondary" href="#" aria-disabled="true" disabled>PayPal - Coming Soon</a>
+          <a class="btn btn-secondary" href="#" aria-disabled="true" disabled>Zelle - Coming Soon</a>
+          <a class="btn" style="border:1px solid var(--charcoal);color:var(--charcoal);" href="mailto:PitStop4Paws@gmail.com">Contact Us</a>
+        </div>
+        <div style="margin-top:1rem;">
+          <a href="https://www.instagram.com/PitStop4Paws" target="_blank" rel="noopener" aria-label="Instagram">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" style="height:24px;margin-right:10px;">
+          </a>
+          <a href="https://www.facebook.com/profile.php?id=61579214438639" target="_blank" rel="noopener" aria-label="Facebook">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Facebook_icon.svg" alt="Facebook" style="height:24px;">
+          </a>
+        </div>
+      </div>
+      <img class="logo" src="https://i.imgur.com/ToFQSgt.png" alt="Pit Stop 4 Paws shield logo" />
+    </div>
+  </main>
+
+  <!-- About / What We Do -->
+  <section id="about">
+    <div class="container">
+      <h2 class="section-title">What We Do</h2>
+      <p>We believe every pet should feel safe, warm, and cared for — no matter where they call home. Pit Stop 4 Paws provides practical, hands-on support to keep pets of the houseless community healthy and comfortable through every season.</p>
+      <div class="cards">
+        <article class="card">
+          <h3>Warmth & Protection</h3>
+          <p>Coats, booties, and rain covers to keep pets dry and comfortable in Oregon weather.</p>
+        </article>
+        <article class="card">
+          <h3>Everyday Essentials</h3>
+          <p>Leashes, harnesses, and flea/tick prevention — practical gear for daily life on the move.</p>
+        </article>
+        <article class="card">
+          <h3>Care & Referrals</h3>
+          <p>Connections to low-cost veterinary care and trusted community resources for both pets and their people.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Volunteer / Get Involved -->
+  <section id="volunteer">
+    <div class="container">
+      <h2 class="section-title">Get Involved</h2>
+      <div class="cards">
+        <article class="card">
+          <h3>Volunteer</h3>
+          <p>Help distribute supplies, assemble kits, or support at outreach events. Everyone can contribute.</p>
+          <form action="mailto:PitStop4Paws@gmail.com" method="post" enctype="text/plain">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+            <button type="submit" class="btn btn-secondary">Submit</button>
+          </form>
+        </article>
+        <article class="card" id="donate">
+          <h3>Donate</h3>
+          <p>Your gift funds weatherproof gear, preventive care, and hands-on outreach for pets living outdoors.</p>
+          <a class="btn btn-primary" href="https://cash.app/$PitStop4Paws" target="_blank" rel="noopener">Donate securely</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="container">
+      <h2 class="section-title">Contact</h2>
+      <p>Email us at <a href="mailto:PitStop4Paws@gmail.com">PitStop4Paws@gmail.com</a>. Follow along on 
+        <a href="https://www.instagram.com/PitStop4Paws" target="_blank" rel="noopener">Instagram</a> • 
+        <a href="https://www.facebook.com/profile.php?id=61579214438639" target="_blank" rel="noopener">Facebook</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- Gallery Placeholder -->
+  <section id="gallery">
+    <div class="container">
+      <h2 class="section-title">Gallery</h2>
+      <p>COMING SOON</p>
+    </div>
+  </section>
+
+  <!-- Blog/Updates Placeholder -->
+  <section id="blog">
+    <div class="container">
+      <h2 class="section-title">Updates</h2>
+      <p>COMING SOON</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="stack-sm">
+        <div>
+          <a class="btn btn-primary" href="https://cash.app/$PitStop4Paws" target="_blank" rel="noopener">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/3/30/Cash_App_Logo.svg" alt="Cash App" style="height:20px;vertical-align:middle;margin-right:5px;">Donate
+          </a>
+          <a class="btn btn-secondary" href="#" aria-disabled="true" disabled>Venmo - Coming Soon</a>
+          <a class="btn btn-secondary" href="#" aria-disabled="true" disabled>PayPal - Coming Soon</a>
+          <a class="btn btn-secondary" href="#" aria-disabled="true" disabled>Zelle - Coming Soon</a>
+        </div>
+        <div style="margin-top:1rem;">
+          <a href="https://www.instagram.com/PitStop4Paws" target="_blank" rel="noopener" aria-label="Instagram">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" style="height:24px;margin-right:10px;">
+          </a>
+          <a href="https://www.facebook.com/profile.php?id=61579214438639" target="_blank" rel="noopener" aria-label="Facebook">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Facebook_icon.svg" alt="Facebook" style="height:24px;">
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
