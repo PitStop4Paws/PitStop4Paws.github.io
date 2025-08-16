@@ -27,16 +27,17 @@
     header{position:sticky;top:0;z-index:10;background:var(--white);border-bottom:1px solid var(--gray-300)}
     .nav{display:flex;align-items:center;justify-content:space-between;padding:.8rem 0}
     .brand{display:flex;align-items:center;gap:.75rem;text-decoration:none}
-    .brand img{width:44px;height:44px;object-fit:contain;border-radius:8px}
+    .brand-logo-wrapper{background:var(--beige);border-radius:50%;padding:6px;display:flex;align-items:center;justify-content:center}
+    .brand img{width:44px;height:44px;object-fit:contain}
     .brand span{font-family:'Montserrat',sans-serif;font-weight:700;letter-spacing:.5px;color:var(--charcoal)}
     nav ul{list-style:none;display:flex;gap:1rem;margin:0;padding:0}
     nav a{text-decoration:none;color:var(--charcoal);font-weight:600;padding:.5rem .75rem;border-radius:8px}
     nav a:hover,nav a:focus{background:var(--gray-100);outline:none}
-    .hero{background:linear-gradient(180deg,var(--beige),#fff 60%);padding:clamp(2rem,4vw + 1rem,5rem) 0 3rem}
-    .hero-inner{display:grid;grid-template-columns:1.1fr .9fr;gap:2rem;align-items:center}
-    .tagline{font-size:1.05rem;font-weight:700;color:var(--red);letter-spacing:.4px}
-    h1{font-family:'Montserrat',sans-serif;font-weight:700;font-size:clamp(1.6rem,1.2rem + 2vw,2.6rem);margin:0 0 .5rem;color:var(--charcoal)}
-    .logo{width:100%;max-width:360px;justify-self:center}
+    .hero{background:linear-gradient(180deg,var(--beige),#fff 60%);padding:clamp(2rem,4vw + 1rem,5rem) 0 3rem;text-align:center}
+    .hero-inner{display:flex;flex-direction:column;align-items:center;gap:1rem}
+    .tagline{font-size:1rem;font-weight:600;color:var(--red);letter-spacing:.4px}
+    h1{font-family:'Montserrat',sans-serif;font-weight:700;font-size:clamp(.9rem,.6rem + 1vw,1.2rem);margin:0;color:var(--charcoal);max-width:650px}
+    .logo{width:100%;max-width:480px}
     .btn{display:inline-block;text-decoration:none;font-weight:700;border-radius:12px;padding:.85rem 1.1rem}
     .btn-primary{background:var(--red);color:var(--white)}
     .btn-primary:hover,.btn-primary:focus{background:var(--red-600)}
@@ -44,25 +45,17 @@
     .btn-secondary:hover,.btn-secondary:focus{background:var(--green-700)}
     .btn[disabled]{opacity:.55;pointer-events:none;filter:saturate(.2);cursor:not-allowed}
     section{padding:3rem 0}
-    .section-title{font-family:'Montserrat',sans-serif;font-size:1.6rem;margin:0 0 1rem}
+    .section-title{font-family:'Montserrat',sans-serif;font-size:1.6rem;margin:0 0 1rem;text-align:center}
     .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem}
     .card{background:var(--white);border:1px solid var(--gray-300);border-radius:14px;padding:1.1rem}
     .card h3{margin:0 0 .5rem;font-size:1.2rem}
-    /* Form styling */
     form{margin-top:.75rem}
     label{font-weight:600;display:block;margin:.5rem 0 .25rem}
     input,textarea{width:100%;padding:.7rem .8rem;border:1px solid var(--gray-300);border-radius:12px;outline:none}
     input:focus,textarea:focus{border-color:var(--green);box-shadow:0 0 0 3px rgba(148,201,115,.25)}
     button[type="submit"].btn{margin-top:.6rem}
-    /* Footer */
-    footer{background:var(--white);border-top:1px solid var(--gray-300);padding:1.5rem 0;font-size:.95rem}
-    /* Coming Soon blocks */
+    footer{background:var(--white);border-top:1px solid var(--gray-300);padding:1.5rem 0;font-size:.95rem;text-align:center}
     #gallery p,#blog p{font-weight:700;letter-spacing:.3px;color:#777}
-    /* Responsive */
-    @media (max-width:860px){
-      .hero-inner{grid-template-columns:1fr;text-align:center}
-      .brand span{display:none}
-    }
   </style>
 </head>
 <body>
@@ -70,7 +63,9 @@
   <header>
     <div class="container nav" role="navigation" aria-label="Primary">
       <a class="brand" href="#home">
-        <img src="https://i.imgur.com/GT4tile.png" alt="Pit Stop 4 Paws logo" />
+        <div class="brand-logo-wrapper">
+          <img src="https://i.imgur.com/GT4tile.png" alt="Pit Stop 4 Paws mini logo" />
+        </div>
         <span>Pit Stop 4 Paws</span>
       </a>
       <nav>
@@ -88,130 +83,12 @@
 
   <!-- Hero -->
   <main id="home" class="hero">
-    <div class="container hero-inner">
-      <div class="stack-lg">
-        <div class="tagline">Relieve. Protect. Mend.</div>
-        <h1>Every pet deserves comfort, even on the hardest days. We bring warmth, safety, and a little joy to the pets of the houseless community — one pit stop at a time.</h1>
-        <div class="stack-sm">
-          <a class="btn btn-primary" href="https://cash.app/$PitStop4Paws" target="_blank" rel="noopener" aria-label="Donate via Cash App">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/3/30/Cash_App_Logo.svg" alt="Cash App" style="height:20px;vertical-align:middle;margin-right:5px;">Donate
-          </a>
-          <a class="btn btn-secondary" href="#" aria-disabled="true" disabled>Venmo - Coming Soon</a>
-          <a class="btn btn-secondary" href="#" aria-disabled="true" disabled>PayPal - Coming Soon</a>
-          <a class="btn btn-secondary" href="#" aria-disabled="true" disabled>Zelle - Coming Soon</a>
-          <a class="btn" style="border:1px solid var(--charcoal);color:var(--charcoal);" href="mailto:PitStop4Paws@gmail.com">Contact Us</a>
-        </div>
-        <div style="margin-top:1rem;">
-          <a href="https://www.instagram.com/PitStop4Paws" target="_blank" rel="noopener" aria-label="Instagram">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" style="height:24px;margin-right:10px;">
-          </a>
-          <a href="https://www.facebook.com/profile.php?id=61579214438639" target="_blank" rel="noopener" aria-label="Facebook">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Facebook_icon.svg" alt="Facebook" style="height:24px;">
-          </a>
-        </div>
-      </div>
+    <div class="hero-inner">
       <img class="logo" src="https://i.imgur.com/ToFQSgt.png" alt="Pit Stop 4 Paws shield logo" />
+      <div class="tagline">Relieve. Protect. Mend.</div>
+      <h1>Every pet deserves comfort, even on the hardest days. We bring warmth, safety, and a little joy to the pets of the houseless community — one pit stop at a time.</h1>
     </div>
   </main>
 
-  <!-- About / What We Do -->
-  <section id="about">
-    <div class="container">
-      <h2 class="section-title">What We Do</h2>
-      <p>We believe every pet should feel safe, warm, and cared for — no matter where they call home. Pit Stop 4 Paws provides practical, hands-on support to keep pets of the houseless community healthy and comfortable through every season.</p>
-      <div class="cards">
-        <article class="card">
-          <h3>Warmth & Protection</h3>
-          <p>Coats, booties, and rain covers to keep pets dry and comfortable in Oregon weather.</p>
-        </article>
-        <article class="card">
-          <h3>Everyday Essentials</h3>
-          <p>Leashes, harnesses, and flea/tick prevention — practical gear for daily life on the move.</p>
-        </article>
-        <article class="card">
-          <h3>Care & Referrals</h3>
-          <p>Connections to low-cost veterinary care and trusted community resources for both pets and their people.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- Volunteer / Get Involved -->
-  <section id="volunteer">
-    <div class="container">
-      <h2 class="section-title">Get Involved</h2>
-      <div class="cards">
-        <article class="card">
-          <h3>Volunteer</h3>
-          <p>Help distribute supplies, assemble kits, or support at outreach events. Everyone can contribute.</p>
-          <form action="mailto:PitStop4Paws@gmail.com" method="post" enctype="text/plain">
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" required>
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" required>
-            <label for="message">Message</label>
-            <textarea id="message" name="message" rows="4" required></textarea>
-            <button type="submit" class="btn btn-secondary">Submit</button>
-          </form>
-        </article>
-        <article class="card" id="donate">
-          <h3>Donate</h3>
-          <p>Your gift funds weatherproof gear, preventive care, and hands-on outreach for pets living outdoors.</p>
-          <a class="btn btn-primary" href="https://cash.app/$PitStop4Paws" target="_blank" rel="noopener">Donate securely</a>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact -->
-  <section id="contact">
-    <div class="container">
-      <h2 class="section-title">Contact</h2>
-      <p>Email us at <a href="mailto:PitStop4Paws@gmail.com">PitStop4Paws@gmail.com</a>. Follow along on 
-        <a href="https://www.instagram.com/PitStop4Paws" target="_blank" rel="noopener">Instagram</a> • 
-        <a href="https://www.facebook.com/profile.php?id=61579214438639" target="_blank" rel="noopener">Facebook</a>
-      </p>
-    </div>
-  </section>
-
-  <!-- Gallery Placeholder -->
-  <section id="gallery">
-    <div class="container">
-      <h2 class="section-title">Gallery</h2>
-      <p>COMING SOON</p>
-    </div>
-  </section>
-
-  <!-- Blog/Updates Placeholder -->
-  <section id="blog">
-    <div class="container">
-      <h2 class="section-title">Updates</h2>
-      <p>COMING SOON</p>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    <div class="container">
-      <div class="stack-sm">
-        <div>
-          <a class="btn btn-primary" href="https://cash.app/$PitStop4Paws" target="_blank" rel="noopener">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/3/30/Cash_App_Logo.svg" alt="Cash App" style="height:20px;vertical-align:middle;margin-right:5px;">Donate
-          </a>
-          <a class="btn btn-secondary" href="#" aria-disabled="true" disabled>Venmo - Coming Soon</a>
-          <a class="btn btn-secondary" href="#" aria-disabled="true" disabled>PayPal - Coming Soon</a>
-          <a class="btn btn-secondary" href="#" aria-disabled="true" disabled>Zelle - Coming Soon</a>
-        </div>
-        <div style="margin-top:1rem;">
-          <a href="https://www.instagram.com/PitStop4Paws" target="_blank" rel="noopener" aria-label="Instagram">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" style="height:24px;margin-right:10px;">
-          </a>
-          <a href="https://www.facebook.com/profile.php?id=61579214438639" target="_blank" rel="noopener" aria-label="Facebook">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Facebook_icon.svg" alt="Facebook" style="height:24px;">
-          </a>
-        </div>
-      </div>
-    </div>
-  </footer>
 </body>
 </html>
